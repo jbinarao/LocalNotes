@@ -1,0 +1,1012 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97830BCF-F113-4413-9498-03E9C31C615E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LocalNotes</RootNamespace>
+    <AssemblyName>LocalNotes</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site\Client\css\site.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-grid.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-grid.min.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-reboot.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap.min.css" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.bundle.js" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.js" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.min.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\.gitignore" />
+    <Content Include="Site\Widget\glyph-iconset-master\cover.png" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\generate-list.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\generate.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\sample-iwc.handlebars.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\sample.handlebars.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\Gruntfile.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\sprite\iconwc.js" />
+    <Content Include="Site\Widget\glyph-iconset-master\sprite\sample-iwc.html" />
+    <Content Include="Site\Widget\glyph-iconset-master\sprite\sample.html" />
+    <Content Include="Site\Widget\glyph-iconset-master\sprite\sprite.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-abacus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-adjustment-horizon.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-adjustment-vertical.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-air-balloon.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-airplane-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-airplane.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-alarm-clock.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-alien.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-aligh-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-align-center.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-align-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-align-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ambulance.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-anchor.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-android.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-angle-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-angle-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-antenna-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-apron.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-backward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-change.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-circle-rycycle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-forward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-four-way.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-fullscreen-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-fullscreen.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-move.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-reload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-4.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-5.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-resize-6.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-shuffle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-thin-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-thin-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thick-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-left-bottom.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-left-top.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-right-bottom.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-right-top.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-thin-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-three-way-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-three-way-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-triangle-recycle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-way-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-way-right-bottom.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-way-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-two-way.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-up-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-arrow-wave.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-art-board.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-askterisk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-atm-card.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-axe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baby-milk-botl.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baby-stroller.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baby-troller.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baby.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-back-pack.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-backward-page.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-badge-name.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bag-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bag-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-balance.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-balloon.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bandage.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bank.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-barcode.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-barrier.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baseball-stick.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-baseball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basket.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-basketball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-charging.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-empty.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-full.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-half-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-half.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-battery-low.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bed.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bell.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bicycle-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bicycle-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bicycle-man.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bikini.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-billiard-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-binocular.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-birthday-cake.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-biscuit.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-blender.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-blood-bag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bluetooth.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-board.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-boat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bolt.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bomb-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bomb-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bone.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-%40.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-4.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-open.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-book-person.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bookcase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bookmark.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-botl-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-botl-milk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bow-tie.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-box-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-box-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bread.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-briefcase-person.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-briefcase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-brightness.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-brush-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-brush-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-brush-and-pencil.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-chat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-dot-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-dot.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-hi.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-quote.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-talk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message-text.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bubble-message.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bucket.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bug.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-building.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bullet-checked-list.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bullet-list-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bullet-list.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-bus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-buy.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-hd.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-play.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-sale.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-sell.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-starburst.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-triangle-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-button-tv.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cabin-cable.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cabinet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-calculator-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-calculator.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-calendar-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-calendar-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-calendar-empty.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-call-forward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-call-reply.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-call.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-camera-projector.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-camera-security.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-camera.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-can-water.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-candle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-candy-stick.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-candy.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-car-garage.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-car.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-casette.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cashier-machine.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-castle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-caterpillar-machine.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cente-justify.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chair-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chair-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-champion-cup.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chart-column-decrease.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chart-column-increase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chart-column.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chart-decrease.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-chart-piece.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cheese.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cherry.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-christmas-mistletoe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-christmass-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-christmass-egg.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-christmass-hat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-christmass-tree.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-backward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-control-pad.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-drashed.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-forward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-help.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-info.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-load-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-load-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-triangle-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-triangle-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle-triangle-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-circle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-city.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clamp.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clapboard-play.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clapboard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clip.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clipboard-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clipboard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clock.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-close.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-cloud.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-heavy-rain.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-rain-heavy-rain.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-snow.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-sun.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-thunder.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cloud.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-clover.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cock-pot.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cocktail.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-coconut.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-code.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-coffee-machine.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-color-picker.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-column-decrease.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-column-increase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-column-wave.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-comb.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-compass.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cone.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-congratulation-hat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-connect-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-connect-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-contact-book.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-contacter.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-contrast.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-control-pad-.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-corkscrew.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-corner-flag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cover-flow.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cover-food.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cow.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cpu.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cran.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-crop.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cross-hair-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cross-hair.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-crown.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cruise.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cubic.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-cup-cake.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-curtain.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-customer-support.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dashboard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-data-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-share.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-database.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-delete.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-delicious-circle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-deny.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-desktop.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dial-number-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dial-number.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-diamond.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-5.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-6-.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dice-6.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-add.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-deny.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-pause.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-play-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-play.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-stop.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disc.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dish.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-disk-antenna.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dna.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-backward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-bullet-list.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-copy.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-doc.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-edit.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-forward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-help.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-music.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-pdf.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-rss.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-search.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document-warning.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-document.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dog.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-door.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-downstair.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-downwards-arrow-to-bar.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-drill.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-drop-water.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-dropbox.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-drum.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-easal.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-edit.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-egg.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-eject.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-electron.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-elevator-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-elevator-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-emoticon.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-end-page.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-erase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-euro.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-excavator.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-extinguisher.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-eye-drop.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-eye-glass.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-factory.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-faucet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-feather.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-female.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fence-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fence.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-file-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-file-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-file-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-film-35mm.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-film.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-finder.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-finger-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fire-alarm.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fire-hydrant.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fire-wood.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fire.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-first-aid-briefcase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fish.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-flag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-float.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-floppy-disk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-flower-pot.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-flower.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-contact.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-music.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-open.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-rss.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-search.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-share.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder-warning.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-folder.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-foot-sign.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-forcus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-forklift.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-forward-page.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fridge.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-fullscreen.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-game-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-game-controll.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-gas-station.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-gate.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-gear-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-gear.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ghost.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-gift.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-glass-water.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-global.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-globe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-glove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-golf-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-golf-flag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-guitar.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hamburger.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hammer-and-wrench.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hammer.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hand-lamp.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hand-switch.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hand.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-handcuff.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hanger.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hardware.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hat-chef.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-head-set.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-head.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-heart-delete.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-heart-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-heart-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-heart-signal.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-heart.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-helicopter-pad.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-helicopter.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-helm-wheel.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-helmet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hightheel.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-history.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hockey.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-home-page.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-horse-shoe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-horse.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-hospital.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-house.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ice-cream.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-id-badge.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-image.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-in-columns.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-inbox-download.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-inbox-upload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-infinity-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-infinity.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-info.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ipod.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-iron.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-jump-backward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-jump-double-page-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-jump-forward.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-jump-page-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-jump-page-up-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-kette.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-key-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-key.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-keyboard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-knife.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ladder-pool.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-lamp-desk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-lamp.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-lavabo.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-law-hammer.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-layout-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-layout-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-layout-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-layout-4.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-leaf.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-left-justify.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-leftwards-arrow-to-bar.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-light-alarm.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-light-bulb.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-light-house.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-like-unlike.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-like.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-line-two-angle-point.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-link-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-link-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-link-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-load.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-lock-unlock.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-lock.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-louder-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-louder-speaker.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-magnet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-magnifier-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-magnifier.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail-empty.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail-has-mail.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail-inbox.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail-send.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mail.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-male.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-man-doctor.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-map-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-map-square.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mark-snorker.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mask-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mask-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-medal-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-microphone-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-microphone-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-microscope.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mobile.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mocule.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-money-%24.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-money-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-money-bag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-money-coin.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-moon-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-motobike.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mountain.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-movie-play.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-movie-projector.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-multifunction-knife.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mushrooms.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-music-note.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-music.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-mustache.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-network-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-network.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-newspaper.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-no-dog.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-no-smoke.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-note-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-note.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-old-phone.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-open.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pallette.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-paper-clip.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-paper-plane.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-paper-roll.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-paper-shredder.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pause.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pawn.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-paypal.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pen-nib.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pen.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pencil.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-percent.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-door-man.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-man.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-people.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-prison.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-public.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-talk.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person-woman.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-person.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pet-carrier.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-phone-fax.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-phone-number.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-piano.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pick.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-picture-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-picture-copy.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-picture.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-piggy-bank.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pill.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-add.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-delete.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-love.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-map.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-location.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pin-map.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ping-pong-racket.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pipe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-pizza.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-plugin.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-podium.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-poker-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-poker-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-poker-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-poker-4.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-print.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-puzzle.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-quote-close.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-quote-open.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-radio.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-radioactive.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-record.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-reduce.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-reel-audio.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-reel-film.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-repeat.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-resize-in-frame.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-resize-out-frame.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-retroeexcavadora.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ribbon.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-right-justify.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-rightwards-arrow-to-bar.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ring.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-road.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-rocket.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-roller.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-rss.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-rugby-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ruler.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-safe-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-safe-pin.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-satellite.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-saw.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-scissor-line-cut.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-scissor.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-screen-ful.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-screen-scale.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-screw-driver.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-screw.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sd-card.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-seriff.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sewing-machine.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sewing-roll.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-share-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-share-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-share-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-share-5.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sheep.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shield-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shield-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shield-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shield.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shovel.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-shower.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-board.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-foot.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-in.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-out.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-p.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-road-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sign-road-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-signal-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-signal-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-signal-3.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-site-map-revert.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-site-map.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-skateboard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-skull.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sleep.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-slide-show.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-smartphone.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sms.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-snow.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-soccer-yard.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sock.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-socket.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-solar-blind.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sos.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sound-mute.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-sound.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-space-ship.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-spanner.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-spoon-fork.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-spray.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-checked.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-dashed-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-dashed-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-delicious.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-eight-angle-point.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-four-angle-point.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-four.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square-star.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-square.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stamps.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-star-cross.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-star-stick.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stele.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stelescope.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stereo-jack.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stethoscope.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-store.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-stove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strawberry.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-street-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strolley-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strolley-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strolley-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strolley-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-strolley.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-subway.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-suitcase-person.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-suitcase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-syringe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-t-shirt.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tablet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tag-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tag-one-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tag-price.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tag.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tank.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-targer.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tea-cup.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-teeth.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-telephone-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-telescope.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-television.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tennis-racket-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tent-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tent-camp.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-test-tube-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-test-tube-empty.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-test-tube.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-text-search.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-thermometer.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-three-ball.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tic-tac-toe.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-time-glass.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-time-reload.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-timer.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-toilet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tool-box.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-traffic-light.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-train-rail.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-train.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trash.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-tree.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trees.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-double-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-double-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-double-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-double-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-triangle-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-arrow-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-briefcase.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-error.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-full.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-plus.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trolley-remove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-truck.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-trumpet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-turn-off.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-two-arrow-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-two-arrow-in-down-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-two-arrow-in-left-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-two-arrow-left.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-two-arrow-right.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-typewriter.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-umberlla-chair.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-umbrella-close.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-umbrella-open.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-umbrella-sea.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-upstair.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-upwards-arrow-to-bar.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-upwards-arrow-with-loop.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-usb.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-view.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wacom-tablet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wall.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wallet.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wash-machine-2.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wash-machine.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-watch.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-webcam.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-weight-down.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-weight-kilograms.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-weight-up.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wheel-chair.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wheel-steel.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wieght.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wifi-1.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wind-turbines.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-window.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wood-stove.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wrench-screwdriver.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-wrench.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-yen.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-ying-yang.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-zip.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-zoom-in.svg" />
+    <Content Include="Site\Widget\glyph-iconset-master\svg\si-glyph-zoom-out.svg" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.js" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.min.js" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.slim.js" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.slim.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Home.aspx" />
+    <Content Include="Note.aspx" />
+    <Content Include="Junk.aspx" />
+    <Content Include="About.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Note.aspx.cs">
+      <DependentUpon>Note.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Note.aspx.designer.cs">
+      <DependentUpon>Note.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Junk.aspx.cs">
+      <DependentUpon>Junk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Junk.aspx.designer.cs">
+      <DependentUpon>Junk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\Server\NoteDetail.cs" />
+    <Compile Include="Site\Server\SqlNoteData.cs" />
+    <Compile Include="_Site.Master.cs">
+      <DependentUpon>_Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Site.Master.designer.cs">
+      <DependentUpon>_Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.min.map" />
+    <Content Include="Site\Widget\jquery\jquery-3.3.1.slim.min.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\.DS_Store" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-grid.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\css\bootstrap.min.css.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.js.map" />
+    <Content Include="Site\Widget\bootstrap-4.1.3-dist\js\bootstrap.min.js.map" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\sample-iwc.handlebars" />
+    <Content Include="Site\Widget\glyph-iconset-master\generator\sample.handlebars" />
+    <Content Include="Site\Widget\glyph-iconset-master\LICENSE" />
+    <Content Include="Site\Widget\glyph-iconset-master\package.json" />
+    <Content Include="Site\Widget\glyph-iconset-master\README.md" />
+    <Content Include="Site\Widget\glyph-iconset-master\sprite\list.csv" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="_Site.Master" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57792</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57792/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
