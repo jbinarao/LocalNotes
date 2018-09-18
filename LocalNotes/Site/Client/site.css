@@ -1,4 +1,4 @@
-﻿/* The site-body (added to _Site.Master) */
+﻿/* The site-body (used in _Site.Master) */
 .site-body {
     background: linear-gradient(-90deg, #d0b782 0%, #a0cecf 100%);
     padding-top: 67px;
