@@ -120,6 +120,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\Server\TextLogging.cs" />
     <Compile Include="Site\Server\NoteDetail.cs" />
     <Compile Include="Site\Server\SqlNoteData.cs" />
     <Compile Include="_Site.Master.cs">

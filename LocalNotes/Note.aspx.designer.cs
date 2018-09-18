@@ -31,13 +31,13 @@ namespace LocalNotes {
         protected global::System.Web.UI.UpdatePanel UpdatePanelNoteAction;
         
         /// <summary>
-        /// lblSaveStatus control.
+        /// lblActionStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSaveStatus;
+        protected global::System.Web.UI.WebControls.Label lblActionStatus;
         
         /// <summary>
         /// btnSave control.
@@ -67,22 +67,22 @@ namespace LocalNotes {
         protected global::System.Web.UI.WebControls.Button btnRemove;
         
         /// <summary>
-        /// UpdatePanelNoteAbsent control.
+        /// UpdatePanelDataAbsent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelNoteAbsent;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelDataAbsent;
         
         /// <summary>
-        /// lblNoteAbsent control.
+        /// lblDataAbsent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoteAbsent;
+        protected global::System.Web.UI.WebControls.Label lblDataAbsent;
         
         /// <summary>
         /// UpdatePanelNoteFields control.

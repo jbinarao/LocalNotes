@@ -31,22 +31,22 @@ namespace LocalNotes {
         protected global::System.Web.UI.WebControls.Button btnRestore;
         
         /// <summary>
-        /// UpdatePanelJunkAbsent control.
+        /// UpdatePanelDataAbsent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelJunkAbsent;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelDataAbsent;
         
         /// <summary>
-        /// lblJunkAbsent control.
+        /// lblDataAbsent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJunkAbsent;
+        protected global::System.Web.UI.WebControls.Label lblDataAbsent;
         
         /// <summary>
         /// RepeaterItemDetail control.

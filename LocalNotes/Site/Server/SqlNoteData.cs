@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,11 +10,6 @@ namespace LocalNotes.Site.Server
 {
     public class SqlNoteData
     {
-        // Fields for the development environment
-        private readonly string _dataSource = "SANDBOX";
-        private readonly string _initialCatalog = "LocalNotes";
-        private readonly string _tableName = "TestData";
-
         /// <summary>
         /// Return a special DataSet of note details.
         /// NoteID: The note ID number.
@@ -28,7 +24,7 @@ namespace LocalNotes.Site.Server
         /// <returns>DataSet of note details.</returns>
         public DataSet SelectNoteDataSet(bool isRemove, int lenAbbrText, bool isSortDesc)
         {
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spSelectNoteData";
             DataSet ds = new DataSet();
             try
@@ -40,16 +36,24 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@isRemove", isRemove);
-                        command.Parameters.AddWithValue("@lenAbbrText", lenAbbrText);
-                        command.Parameters.AddWithValue("@isSortDesc", isSortDesc);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@isRemove", SqlDbType.Bit) { Value = isRemove },
+                            new SqlParameter("@lenAbbrText", SqlDbType.Int) { Value = lenAbbrText },
+                            new SqlParameter("@isSortDesc", SqlDbType.Bit) { Value = isSortDesc },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
-                            adapter.Fill(ds, _tableName);
+                            adapter.Fill(ds);
                         }
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -62,12 +66,12 @@ namespace LocalNotes.Site.Server
         /// <summary>
         /// Update the detail for an existing note.
         /// </summary>
-        /// <param name="noteID" type="int">The note ID.</param>
-        /// <param name="noteName" type="string">The note name.</param>
-        /// <param name="noteText" type="string">The note text.</param>
+        /// <param name="noteID">The note ID.</param>
+        /// <param name="noteName">The note name.</param>
+        /// <param name="noteText">The note text.</param>
         public void UpdateNoteDetail(int noteID, string noteName, string noteText)
         {
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spUpdateNoteDetail";
             try
             {
@@ -78,15 +82,23 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@noteID", noteID);
-                        command.Parameters.AddWithValue("@noteName", noteName);
-                        command.Parameters.AddWithValue("@noteText", noteText);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@noteID", SqlDbType.Int) {Value = noteID},
+                            new SqlParameter("@noteName", SqlDbType.NVarChar) { Value = noteName },
+                            new SqlParameter("@noteText", SqlDbType.NVarChar) { Value = noteText },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         connection.Open();
                         command.ExecuteNonQuery();
                         connection.Close();
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -97,14 +109,14 @@ namespace LocalNotes.Site.Server
         /// <summary>
         /// Create a new note.
         /// </summary>
-        /// <param name="noteName" type="string">The note name.</param>
-        /// <param name="noteText" type="string">The note text.</param>
+        /// <param name="noteName">The note name.</param>
+        /// <param name="noteText">The note text.</param>
         /// <returns>The note ID for the new note record.</returns>
         public int CreateNote(string noteName, string noteText)
         {
             int intReturn = 0;
 
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spInsertNoteData";
             try
             {
@@ -115,14 +127,22 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@noteName", noteName);
-                        command.Parameters.AddWithValue("@noteText", noteText);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@noteName", SqlDbType.NVarChar) { Value = noteName },
+                            new SqlParameter("@noteText", SqlDbType.NVarChar) { Value = noteText },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         connection.Open();
                         intReturn = (int)command.ExecuteScalar();
                         connection.Close();
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -134,10 +154,10 @@ namespace LocalNotes.Site.Server
         /// <summary>
         /// Mark the note for removal.
         /// </summary>
-        /// <param name="noteID" type="int">The note ID.</param>
+        /// <param name="noteID">The note ID.</param>
         public void RemoveNote(int noteID)
         {
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spUpdateNoteRemove";
             try
             {
@@ -148,13 +168,21 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@noteID", noteID);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@noteID", SqlDbType.Int) { Value = noteID },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         connection.Open();
                         command.ExecuteNonQuery();
                         connection.Close();
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -165,10 +193,10 @@ namespace LocalNotes.Site.Server
         /// <summary>
         /// Mark the note to be restored.
         /// </summary>
-        /// <param name="noteID" type="int">The note ID.</param>
+        /// <param name="noteID">The note ID.</param>
         public void RestoreNote(int noteID)
         {
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spUpdateNoteRestore";
             try
             {
@@ -179,13 +207,21 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@noteID", noteID);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@noteID", SqlDbType.Int) { Value = noteID },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         connection.Open();
                         command.ExecuteNonQuery();
                         connection.Close();
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -196,11 +232,11 @@ namespace LocalNotes.Site.Server
         /// <summary>
         /// Select active notes not marked for removal.
         /// </summary>
-        /// <param name="noteID" type="int">The note ID.</param>
+        /// <param name="noteID">The note ID.</param>
         /// <returns>DataSet of active notes.</returns>
         public DataSet SelectActiveNote(int noteID)
         {
-            string strConnString = GetConnStringMsSql();
+            string strConnString = GetAppConnString();
             string strCmdText = "spSelectActiveNote";
             DataSet ds = new DataSet();
             try
@@ -212,14 +248,22 @@ namespace LocalNotes.Site.Server
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.AddWithValue("@noteID", noteID);
+                        List<SqlParameter> paramList = new List<SqlParameter>()
+                        {
+                            new SqlParameter("@noteID", SqlDbType.Int) { Value = noteID },
+                        };
+                        command.Parameters.AddRange(paramList.ToArray());
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
-                            adapter.Fill(ds, _tableName);
+                            adapter.Fill(ds);
                         }
                     }
                 }
+            }
+            catch (SqlException sqlex)
+            {
+                throw sqlex;
             }
             catch
             {
@@ -235,20 +279,21 @@ namespace LocalNotes.Site.Server
         /// Obtain the connection string for the SQL data source.
         /// </summary>
         /// <returns>The connection string.</returns>
-        private string GetConnStringMsSql()
+        private string GetAppConnString()
         {
-            string strReturn = string.Empty;
-            //strReturn = "Data Source=SANDBOX;Initial Catalog=LocalNotes;Integrated Security=True";
-
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            try
             {
-                DataSource = _dataSource,
-                InitialCatalog = _initialCatalog,
-                IntegratedSecurity = true
-            };
-
-            strReturn = builder.ToString();
-            return strReturn;
+                //return "Data Source=.;Initial Catalog=TestBadDbName;Integrated Security=True";
+                return ConfigurationManager.ConnectionStrings[name: "AppConnString"].ConnectionString;
+            }
+            catch (ConfigurationErrorsException ceex)
+            {
+                throw ceex;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         #endregion

@@ -11,7 +11,7 @@
         <ContentTemplate>
             <div class="site-action-fixed shadow-sm">
                 <div class="btn-toolbar mb-2 mb-md-0 d-print-none justify-content-end">
-                    <asp:Label ID="lblSaveStatus" runat="server" CssClass="text-success"></asp:Label>
+                    <asp:Label ID="lblActionStatus" runat="server" CssClass="text-success"></asp:Label>
                     <div class="btn-group ml-2">
                         <asp:Button ID="btnSave" runat="server" Text=" Save " CssClass="btn btn-outline-success" OnClick="btnSave_Click" />
                         <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary" OnClick="btnCancel_Click" />
@@ -29,12 +29,12 @@
     <div class="site-scroll-content">
 
         <!-- data-missing -->
-        <asp:UpdatePanel ID="UpdatePanelNoteAbsent" runat="server">
+        <asp:UpdatePanel ID="UpdatePanelDataAbsent" runat="server">
             <ContentTemplate>
                 <div class="site-jumbotron-container">
                     <div class="jumbotron">
                         <p>
-                            <asp:Label ID="lblNoteAbsent" runat="server"></asp:Label>
+                            <asp:Label ID="lblDataAbsent" runat="server"></asp:Label>
                         </p>
                         <a href="Home.aspx" role="button" class="btn btn-primary">Home</a>
                     </div>
@@ -86,7 +86,7 @@
 
         // Remove the save status
         $(document).mousemove(function () {
-            $('#<%= lblSaveStatus.ClientID %>').delay(3000).fadeOut(300);
+            $('#<%= lblActionStatus.ClientID %>').delay(3000).fadeOut(300);
         });
 
         // Adjust the enablement state of the save button.
@@ -113,7 +113,7 @@
             };
         };
 
-        // Adjust the enablement state of the remove button.
+        // Adjust the remove button enablement state.
         function removeButtonState() {
             var noteID = $("#" + '<%= hidNoteID.ClientID %>').val();
             if (noteID > 0) {

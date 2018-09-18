@@ -16,29 +16,35 @@
 
                 <h4>Welcome</h4>
                 <p>
-                    LocalNotes is an easy-to-use web browser application that is useful for creating and storing simple notes inside of your own infrastructure.
+                    LocalNotes is an easy-to-use web browser application that is useful for creating and storing simple notes within your own infrastructure.
                 </p>
-
                 <br />
+
                 <h5>Technologies</h5>
                 <p>
-                    LocalNotes was developed using Visual Studio 2017, and the code-behind for Active Server Pages (ASP) were written in C# .NET. Additional technologies used for this build include the following:
+                    The following topics are highlighted in the construction of this project.
                 </p>
                 <ul>
-                    <li>jQuery for enhanced client actions</li>
-                    <li>Bootstrap to provide element styling</li>
-                    <li>Custom CSS for additional page styling</li>
+                    <li>Developed using Visual Studio 2017</li>
+                    <li>Active Server Pages (ASP.NET)</li>
+                    <li>Code-behind for pages written in C#</li>
+                    <li>.NET Framework version used is 4.6.</li>
+                    <li>ADO.NET Data Provider for SQL Client</li>
                     <li>Microsoft SQL Server for data storage</li>
-                    <li>IIS Server to run active server pages</li>
+                    <li>Data access using Stored Procedures</li>
+                    <li>Data binding to form controls</li>
+                    <li>Http Request Parameter Query</li>
+                    <li>Logging exceptions to a text file</li>
+                    <li>Bootstrap to provide element styling</li>
+                    <li>jQuery for enhanced client actions</li>
+                    <li>Custom CSS for additional styling</li>
                 </ul>
-
                 <br />
+
                 <h5>Author</h5>
                 <p>
                     Jimmy Binarao<br />
                     Email: jbinarao@gmail.com<br />
-                    <br />
-                    Experienced in .NET development using Visual Studio with both front and back end stacks in C# and VB .NET, as well as relational databases, including Microsoft SQL Server. Experienced with analyzing, planning, designing, and creating business workflows with emphasis on combining business process automation, data-driven technologies, and user adaption. Experienced managing document imaging and secure print solutions.
                 </p>
 
             </div>

@@ -19,14 +19,13 @@
     <div class="site-scroll-content">
 
         <!-- data-missing -->
-        <asp:UpdatePanel ID="UpdatePanelNoteAbsent" runat="server">
+        <asp:UpdatePanel ID="UpdatePanelDataAbsent" runat="server">
             <ContentTemplate>
                 <div class="site-jumbotron-container">
                     <div class="jumbotron">
                         <p>
-                            <asp:Label ID="lblNoteAbsent" runat="server"></asp:Label>
+                            <asp:Label ID="lblDataAbsent" runat="server"></asp:Label>
                         </p>
-                        <asp:Button ID="btnNewNote" runat="server" Text="+ New Note" CssClass="btn btn-success" OnClick="btnCreate_Click" />
                     </div>
                 </div>
             </ContentTemplate>
@@ -68,45 +67,52 @@
 
         $(document).ready(function () {
 
-            // Blink the Create button.
-            $('#<%=btnCreate.ClientID%>').hide();
-            var rowsCount = <%=hidRecords.Value %>;
-            if (rowsCount > 0) {
-                BlinkCreateButton(rowsCount);
-            }
+            // Declare the Create button ...
+            var buttonCreate = $('#<%=btnCreate.ClientID %>');
 
-            // Restore the Create button to the default css class.
-            $('#<%=btnCreate.ClientID%>').hover(function () {
-                SetDefaultCreateClass();
+            // Hide the Create button to ease in the button ...
+            buttonCreate.hide();
+
+            // Get the number of records assigned by the server ...
+            var recordCount = <%=hidRecords.Value %>;
+            console.log("Record Count: " + recordCount);
+
+            // Blink the Create button ...
+            BlinkButtonConditionally(buttonCreate, recordCount);
+
+            // Restore the default css class to the Create button on hover.
+            buttonCreate.hover(function () {
+                SetSuccessOutlineClass(buttonCreate);
             });
 
             console.log("DOM loaded.");
         });
 
-        // Blink the new note button to assist a new user by drawing
-        // attention to the next action on this page.
-        function BlinkCreateButton(rowsCount) {
+        // Conditionally 'blink' the button to assist a new user by drawing
+        // their attention to the next action on this page.
+        function BlinkButtonConditionally(button, recordCount) {
             var i;
-            var notes = 3;  // The number of notes to apply the effect (3)
-            var loops = 3;  // The number of blinks
-            if (rowsCount <= notes) {
-                $('#<%=btnCreate.ClientID%>').removeClass();
-                $('#<%=btnCreate.ClientID%>').addClass('btn btn-success');
-                $('#<%=btnCreate.ClientID%>').delay(300);
-                for (i = 0; i < loops; i++) {
-                    $('#<%=btnCreate.ClientID%>').fadeIn(300).fadeOut(300);
+            var neededCount = 1;  // The number of needed notes to apply the effect (Suggested: 1)
+            var blinksCount = 3;  // The number of blinks to apply (Suggested: 3)
+            
+            if (recordCount < neededCount) {
+                button.removeClass();
+                button.addClass('btn btn-success');
+                button.delay(300);
+                for (i = 0; i < blinksCount; i++) {
+                    button.fadeIn(300).fadeOut(300);
                 }
-                $('#<%=btnCreate.ClientID%>').fadeIn(300)
+                button.fadeIn(300)
             }
             else {
-                $('#<%=btnCreate.ClientID%>').show();
+                button.show();
             }
         };
 
-        // Restore the default css class to the create button.
-        function SetDefaultCreateClass() {
-            $('#<%=btnCreate.ClientID%>').removeClass();
-            $('#<%=btnCreate.ClientID%>').addClass('btn btn-outline-success');
+        // Assign the normal css class to the button.
+        function SetSuccessOutlineClass(button) {
+            button.removeClass();
+            button.addClass('btn btn-outline-success');
         };
     </script>
 

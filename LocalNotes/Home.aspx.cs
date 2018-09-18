@@ -11,45 +11,23 @@ namespace LocalNotes
 {
     public partial class Home : System.Web.UI.Page
     {
-        // Declare object for the SQL note data.
+        // Declare fields for class objects.
         private SqlNoteData _sqlNoteData;
+        private TextLogging _textLogging;
 
-        // Default constructor to instantiate SqlNoteData.
+        // Default constructor to instantiate classes.
         public Home()
         {
             _sqlNoteData = new SqlNoteData();
+            _textLogging = new TextLogging();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                DataTable noteTable = _sqlNoteData.SelectNoteDataSet(false, 20, true).Tables["TestData"];
-
-                int intRecordCount = noteTable.Rows.Count;
-
-                // testing to simulate no records ...
-                //intRecordCount = 0;
-
-                hidRecords.Value = intRecordCount.ToString();
-
-                if (intRecordCount == 0)
-                {
-                    // Show the UpdatePanelNoteAbsent ...
-                    UpdatePanelNoteAbsent.Visible = true;
-
-                    // Update the message for no notes ...
-                    lblNoteAbsent.Text = "Click to create your first note. :-)";
-                }
-                else
-                {
-                    // Hide the UpdatePanelNoteAbsent ...
-                    UpdatePanelNoteAbsent.Visible = false;
-
-                    // Update the data source and data binding ...
-                    RepeaterItemDetail.DataSource = noteTable;
-                    RepeaterItemDetail.DataBind();
-                }
+                // The display logic for note item data ...
+                DisplayNoteData();
             }
             else
             {
@@ -59,7 +37,88 @@ namespace LocalNotes
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Note.aspx");
+            // Navigate to the note page ...
+            Response.Redirect("~/Note.aspx", false);
         }
+
+        #region HELPER SECTION
+
+        /// <summary>
+        /// This method is used to select and bind data about notes that are marked
+        /// as junk to the form control. If there are no records, an update panel is
+        /// shown to reflect that. Otherwise, the data is bound to a repeater control
+        /// to display the data.
+        /// </summary>
+        private void DisplayNoteData()
+        {
+            // Define the SelectNoteDataSet method input parameters
+            bool isRemove = false;  // Set to false for note records, true for junk records marked as isRemove.
+            int lenTextAbbr = 25;   // The number of characters of note text to return as abbreviated text.
+            bool isSortDesc = true; // Set to true for returned records in descending order, false for ascending.
+
+            try
+            {
+                // Obtain the DataSet and place into a DataTable ...
+                DataTable noteTable = _sqlNoteData.SelectNoteDataSet(isRemove, lenTextAbbr, isSortDesc).Tables[0];
+
+                // Count the number of returned records ...
+                int intRecordCount = noteTable.Rows.Count;
+
+                // Update the hidden page field with the number of records ...
+                hidRecords.Value = intRecordCount.ToString();
+
+                if (intRecordCount == 0)
+                {
+                    // Show the Update Panel ...
+                    UpdatePanelDataAbsent.Visible = true;
+
+                    // Assign the message ...
+                    lblDataAbsent.Text = "Click the '" + btnCreate.Text + "' button to begin writing your note. :-)";
+                }
+                else
+                {
+                    // Hide the Update Panel ...
+                    UpdatePanelDataAbsent.Visible = false;
+
+                    // Assign records found data table to the form control ...
+                    RepeaterItemDetail.DataSource = noteTable;
+                    // Bind the data to the form control ...
+                    RepeaterItemDetail.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception ...
+                HandleAppError(ex);
+            }
+        }
+
+        /// <summary>
+        /// This method is for handling an exception by presenting information to the
+        /// page for the user and logging details about the exception.
+        /// </summary>
+        /// <param name="ex">The exception</param>
+        private void HandleAppError(Exception ex)
+        {
+            // Show the Update Panel ...
+            UpdatePanelDataAbsent.Visible = true;
+
+            // Assign the user message ...
+            lblDataAbsent.Text = "Oh no, something went wrong :-(" + "<br />"
+                + "<br />"
+                + "We've logged system details about the issue for further investigation." + "<br />"
+                + "[" + ex.HResult + "]<br />"
+                + "<br />"
+                + "Please notify your support team." + "<br />"
+                + "<i>support@your.org</i>";
+
+            // Log a message ...
+            _textLogging.LogMessage("The following error occurred: " + ex.HResult);
+
+            // Log the exception ...
+            _textLogging.LogMessage(ex);
+        }
+
+        #endregion
     }
 }

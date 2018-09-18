@@ -19,12 +19,12 @@
     <div class="site-scroll-content">
 
         <!-- data-missing -->
-        <asp:UpdatePanel ID="UpdatePanelJunkAbsent" runat="server">
+        <asp:UpdatePanel ID="UpdatePanelDataAbsent" runat="server">
             <ContentTemplate>
                 <div class="site-jumbotron-container">
                     <div class="jumbotron">
                         <p>
-                            <asp:Label ID="lblJunkAbsent" runat="server"></asp:Label>
+                            <asp:Label ID="lblDataAbsent" runat="server"></asp:Label>
                         </p>
                     </div>
                 </div>
